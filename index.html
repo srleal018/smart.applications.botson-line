@@ -3,12 +3,12 @@
 
 <head>
 
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
 
     <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0"
-    />
+    >
 
     <title>
         Smart Applications
@@ -17,18 +17,18 @@
     <link
         rel="preconnect"
         href="https://fonts.googleapis.com"
-    />
+    >
 
     <link
         rel="preconnect"
         href="https://fonts.gstatic.com"
         crossorigin
-    />
+    >
 
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet"
-    />
+    >
 
     <script src="https://unpkg.com/lucide@latest"></script>
 
@@ -36,760 +36,322 @@
 
         :root {
 
-            --primary:
-                #5865F2;
-
-            --primary-dark:
-                #4752C4;
-
-            --background:
-                #080A12;
-
-            --surface:
-                #111827;
-
-            --card:
-                rgba(17, 24, 39, 0.75);
-
-            --border:
-                rgba(255,255,255,0.08);
-
-            --text:
-                #F9FAFB;
-
-            --muted:
-                #9CA3AF;
-
-            --success:
-                #10B981;
-
-            --danger:
-                #EF4444;
-
-            --warning:
-                #F59E0B;
+            --primary: #5865F2;
+            --background: #080A12;
+            --surface: #111827;
+            --card: rgba(17,24,39,.75);
+            --border: rgba(255,255,255,.08);
+            --text: #F9FAFB;
+            --muted: #9CA3AF;
+            --success: #10B981;
+            --danger: #EF4444;
+            --warning: #F59E0B;
 
         }
 
         * {
 
-            margin:
-                0;
-
-            padding:
-                0;
-
-            box-sizing:
-                border-box;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
 
         }
 
         body {
 
-            background:
-                var(--background);
-
-            color:
-                var(--text);
-
-            font-family:
-                'Inter',
-                sans-serif;
+            background: var(--background);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
 
         }
 
         header {
 
-            width:
-                100%;
-
-            min-height:
-                320px;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            flex-direction:
-                column;
-
-            text-align:
-                center;
-
-            padding:
-                30px;
-
-            border-bottom:
-                1px solid var(--border);
+            padding: 80px 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
 
             background:
-                radial-gradient(
-                    circle at top right,
-                    rgba(88,101,242,.25),
-                    transparent 40%
-                ),
-                linear-gradient(
-                    to bottom,
-                    #0f172a,
-                    #080A12
-                );
-
-        }
-
-        .status-badge {
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            gap:
-                8px;
-
-            padding:
-                8px 18px;
-
-            border-radius:
-                999px;
-
-            border:
-                1px solid var(--success);
-
-            background:
-                rgba(16,185,129,.1);
-
-            color:
-                var(--success);
-
-            font-size:
-                13px;
-
-            font-weight:
-                700;
-
-            margin-bottom:
-                18px;
+                radial-gradient(circle at top right,
+                rgba(88,101,242,.25),
+                transparent 40%),
+                linear-gradient(to bottom,
+                #0f172a,
+                #080A12);
 
         }
 
         header h1 {
 
-            font-size:
-                clamp(
-                    34px,
-                    5vw,
-                    58px
-                );
-
-            font-weight:
-                800;
-
-            letter-spacing:
-                -2px;
+            font-size: 56px;
+            font-weight: 800;
 
         }
 
         header p {
 
-            margin-top:
-                15px;
-
-            max-width:
-                700px;
-
-            color:
-                var(--muted);
-
-            font-size:
-                17px;
-
-            line-height:
-                1.7;
-
-        }
-
-        .search-box {
-
-            width:
-                92%;
-
-            max-width:
-                700px;
-
-            margin:
-                -35px auto 0;
-
-            position:
-                relative;
-
-            z-index:
-                10;
-
-        }
-
-        .search-box input {
-
-            width:
-                100%;
-
-            padding:
-                18px 20px 18px 58px;
-
-            border-radius:
-                18px;
-
-            border:
-                1px solid var(--border);
-
-            background:
-                var(--surface);
-
-            color:
-                white;
-
-            font-size:
-                15px;
-
-            outline:
-                none;
-
-            transition:
-                .25s;
-
-            box-shadow:
-                0 20px 50px rgba(0,0,0,.45);
-
-        }
-
-        .search-box input:focus {
-
-            border-color:
-                var(--primary);
-
-            box-shadow:
-                0 0 0 4px rgba(88,101,242,.2);
-
-        }
-
-        .search-icon {
-
-            position:
-                absolute;
-
-            left:
-                18px;
-
-            top:
-                50%;
-
-            transform:
-                translateY(-50%);
-
-            color:
-                var(--muted);
+            margin-top: 15px;
+            color: var(--muted);
 
         }
 
         .container {
 
-            width:
-                100%;
-
-            max-width:
-                1450px;
-
-            margin:
-                60px auto;
-
-            padding:
-                0 20px;
-
-            display:
-                grid;
-
-            grid-template-columns:
-                280px 1fr;
-
-            gap:
-                35px;
-
-        }
-
-        .sidebar {
-
-            position:
-                sticky;
-
-            top:
-                20px;
-
-            height:
-                fit-content;
-
-        }
-
-        .sidebar-card {
-
-            background:
-                var(--surface);
-
-            border:
-                1px solid var(--border);
-
-            border-radius:
-                18px;
-
-            padding:
-                20px;
-
-        }
-
-        .sidebar-title {
-
-            color:
-                var(--muted);
-
-            font-size:
-                12px;
-
-            font-weight:
-                700;
-
-            margin-bottom:
-                15px;
-
-            text-transform:
-                uppercase;
-
-            letter-spacing:
-                1px;
-
-        }
-
-        .menu-item {
-
-            width:
-                100%;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                space-between;
-
-            padding:
-                12px;
-
-            border-radius:
-                12px;
-
-            margin-bottom:
-                8px;
-
-            cursor:
-                pointer;
-
-            transition:
-                .2s;
-
-            color:
-                var(--muted);
-
-        }
-
-        .menu-item:hover {
-
-            background:
-                rgba(255,255,255,.04);
-
-            color:
-                white;
-
-        }
-
-        .menu-item.active {
-
-            background:
-                var(--primary);
-
-            color:
-                white;
-
-            font-weight:
-                700;
-
-        }
-
-        .pill {
-
-            background:
-                rgba(0,0,0,.25);
-
-            padding:
-                4px 10px;
-
-            border-radius:
-                999px;
-
-            font-size:
-                12px;
+            max-width: 1400px;
+            margin: auto;
+            padding: 40px 20px;
 
         }
 
         .grid {
 
-            display:
-                grid;
+            display: grid;
 
             grid-template-columns:
                 repeat(
                     auto-fill,
-                    minmax(340px, 1fr)
+                    minmax(340px,1fr)
                 );
 
-            gap:
-                24px;
+            gap: 24px;
 
         }
 
         .card {
 
-            position:
-                relative;
-
-            background:
-                var(--card);
+            background: var(--card);
 
             border:
                 1px solid var(--border);
 
-            border-radius:
-                24px;
+            border-radius: 24px;
 
-            padding:
-                24px;
+            padding: 24px;
 
-            backdrop-filter:
-                blur(10px);
+            position: relative;
 
-            transition:
-                .25s;
+            overflow: hidden;
 
-            overflow:
-                hidden;
+            transition: .25s;
+
+            backdrop-filter: blur(10px);
 
         }
 
         .card:hover {
 
-            transform:
-                translateY(-5px);
+            transform: translateY(-6px);
 
-            border-color:
-                var(--primary);
-
-        }
-
-        .card::before {
-
-            content:
-                '';
-
-            position:
-                absolute;
-
-            inset:
-                0;
-
-            background:
-                radial-gradient(
-                    circle at top right,
-                    rgba(88,101,242,.15),
-                    transparent 45%
-                );
-
-            pointer-events:
-                none;
+            border-color: var(--primary);
 
         }
 
         .status {
 
-            position:
-                absolute;
+            position: absolute;
 
-            top:
-                18px;
+            top: 18px;
+            right: 18px;
 
-            right:
-                18px;
+            padding: 6px 12px;
 
-            padding:
-                6px 12px;
+            border-radius: 999px;
 
-            border-radius:
-                999px;
-
-            font-size:
-                11px;
-
-            font-weight:
-                700;
-
-            text-transform:
-                uppercase;
+            font-size: 11px;
+            font-weight: 700;
 
         }
 
         .online {
 
-            background:
-                rgba(16,185,129,.12);
+            background: rgba(16,185,129,.12);
 
-            border:
-                1px solid var(--success);
+            color: var(--success);
 
-            color:
-                var(--success);
+            border: 1px solid var(--success);
 
         }
 
         .offline {
 
-            background:
-                rgba(239,68,68,.12);
+            background: rgba(239,68,68,.12);
 
-            border:
-                1px solid var(--danger);
+            color: var(--danger);
 
-            color:
-                var(--danger);
+            border: 1px solid var(--danger);
 
         }
 
         .card h2 {
 
-            font-size:
-                23px;
-
-            margin-bottom:
-                6px;
+            font-size: 24px;
+            margin-bottom: 8px;
 
         }
 
         .bot-id {
 
-            color:
-                var(--muted);
-
-            font-size:
-                13px;
-
-            font-family:
-                monospace;
+            color: var(--muted);
+            font-size: 13px;
 
         }
 
         .stats {
 
-            margin-top:
-                22px;
+            margin-top: 22px;
 
-            background:
-                rgba(0,0,0,.22);
+            display: flex;
+            flex-direction: column;
 
-            border-radius:
-                16px;
+            gap: 12px;
 
-            padding:
-                16px;
+            background: rgba(0,0,0,.2);
 
-            display:
-                flex;
+            padding: 18px;
 
-            flex-direction:
-                column;
-
-            gap:
-                14px;
+            border-radius: 16px;
 
         }
 
         .row {
 
-            display:
-                flex;
+            display: flex;
 
-            justify-content:
-                space-between;
+            justify-content: space-between;
 
-            align-items:
-                center;
-
-            gap:
-                10px;
+            align-items: center;
 
         }
 
-        .row-left {
+        .row span {
 
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            gap:
-                8px;
-
-            color:
-                var(--muted);
-
-            font-size:
-                14px;
-
-        }
-
-        .row-value {
-
-            font-weight:
-                700;
-
-            text-align:
-                right;
-
-        }
-
-        .warn {
-
-            color:
-                var(--warning);
-
-        }
-
-        .danger {
-
-            color:
-                var(--danger);
+            color: var(--muted);
 
         }
 
         .button {
 
-            width:
-                100%;
+            width: 100%;
 
-            margin-top:
-                18px;
+            margin-top: 18px;
 
-            border:
-                none;
+            border: none;
 
-            border-radius:
-                14px;
+            background: var(--primary);
 
-            padding:
-                14px;
+            color: white;
 
-            background:
-                var(--primary);
+            padding: 14px;
 
-            color:
-                white;
+            border-radius: 14px;
 
-            font-weight:
-                700;
+            cursor: pointer;
 
-            cursor:
-                pointer;
+            font-weight: 700;
 
-            transition:
-                .2s;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            gap:
-                8px;
+            transition: .2s;
 
         }
 
         .button:hover {
 
-            background:
-                var(--primary-dark);
-
-            transform:
-                scale(1.02);
+            transform: scale(1.02);
 
         }
 
-        .loader {
+        .modal-overlay {
 
-            width:
-                100%;
+            position: fixed;
 
-            padding:
-                120px 20px;
+            inset: 0;
 
-            text-align:
-                center;
+            background: rgba(0,0,0,.7);
 
-            color:
-                var(--muted);
+            display: none;
 
-        }
+            align-items: center;
 
-        .spin {
+            justify-content: center;
 
-            animation:
-                spin 1s linear infinite;
+            padding: 20px;
 
-        }
+            z-index: 999;
 
-        @keyframes spin {
-
-            100% {
-
-                transform:
-                    rotate(360deg);
-
-            }
+            backdrop-filter: blur(8px);
 
         }
 
-        @media (
-            max-width: 950px
-        ) {
+        .modal {
 
-            .container {
+            width: 100%;
 
-                grid-template-columns:
-                    1fr;
+            max-width: 700px;
 
-            }
+            background: #111827;
 
-            .sidebar {
+            border-radius: 24px;
 
-                display:
-                    none;
+            border: 1px solid rgba(255,255,255,.08);
 
-            }
+            overflow: hidden;
+
+        }
+
+        .modal-header {
+
+            padding: 20px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            border-bottom:
+                1px solid rgba(255,255,255,.08);
+
+        }
+
+        .modal-header button {
+
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 22px;
+            cursor: pointer;
+
+        }
+
+        .modal-content {
+
+            padding: 24px;
+
+            display: grid;
+
+            gap: 16px;
+
+        }
+
+        .modal-box {
+
+            background: rgba(255,255,255,.03);
+
+            border-radius: 16px;
+
+            padding: 16px;
+
+        }
+
+        .modal-box span {
+
+            color: var(--muted);
+            font-size: 13px;
+
+        }
+
+        .modal-box h3 {
+
+            margin-top: 6px;
 
         }
 
@@ -801,311 +363,104 @@
 
     <header>
 
-        <div
-            class="status-badge"
-            id="statusBadge"
-        >
-
-            <i
-                data-lucide="loader-2"
-                class="spin"
-                size="15"
-            ></i>
-
-            Conectando ao Firebase...
-
-        </div>
-
         <h1>
             Smart Applications
         </h1>
 
         <p>
-            Painel profissional sincronizado em tempo real
-            com o Firebase para gerenciamento completo
-            de bots, mensalidades e status.
+            Dashboard premium conectado em tempo real.
         </p>
 
     </header>
 
-    <div class="search-box">
-
-        <i
-            data-lucide="search"
-            class="search-icon"
-            size="20"
-        ></i>
-
-        <input
-            type="text"
-            id="search"
-            placeholder="Pesquisar por nome ou ID..."
-        />
-
-    </div>
-
     <div class="container">
 
-        <aside class="sidebar">
-
-            <div class="sidebar-card">
-
-                <div class="sidebar-title">
-                    Dashboard
-                </div>
-
-                <div
-                    class="menu-item active"
-                    onclick="filtrar('all', event)"
-                >
-
-                    <span>
-                        Todos os Bots
-                    </span>
-
-                    <span
-                        class="pill"
-                        id="count-all"
-                    >
-                        0
-                    </span>
-
-                </div>
-
-                <div
-                    class="menu-item"
-                    onclick="filtrar('online', event)"
-                >
-
-                    <span>
-                        Online
-                    </span>
-
-                    <span
-                        class="pill"
-                        id="count-online"
-                    >
-                        0
-                    </span>
-
-                </div>
-
-                <div
-                    class="menu-item"
-                    onclick="filtrar('vencendo', event)"
-                >
-
-                    <span>
-                        Vencendo
-                    </span>
-
-                    <span
-                        class="pill"
-                        id="count-warn"
-                    >
-                        0
-                    </span>
-
-                </div>
-
-            </div>
-
-        </aside>
-
-        <main
+        <div
             class="grid"
             id="grid"
-        >
+        ></div>
 
-            <div class="loader">
+    </div>
 
-                <i
-                    data-lucide="loader-2"
-                    class="spin"
-                    size="42"
-                ></i>
+    <div
+        class="modal-overlay"
+        id="modalOverlay"
+    >
 
-                <p>
-                    Sincronizando banco...
-                </p>
+        <div class="modal">
+
+            <div class="modal-header">
+
+                <h2 id="modalNome">
+                    BOT
+                </h2>
+
+                <button onclick="fecharModal()">
+                    ✕
+                </button>
 
             </div>
 
-        </main>
+            <div
+                class="modal-content"
+                id="modalContent"
+            ></div>
+
+        </div>
 
     </div>
+
+    <script src="./config.js"></script>
 
     <script>
 
-        const FIREBASE_URL =
-            'https://smart-applications-6ced1-default-rtdb.firebaseio.com/bots.json';
-
-        let bots =
-            [];
+        let bots = [];
 
         async function carregarBots() {
 
-            try {
+            const req =
+                await fetch(FIREBASE_URL);
 
-                const req =
-                    await fetch(
-                        FIREBASE_URL
-                    );
+            const data =
+                await req.json();
 
-                const data =
-                    await req.json();
+            bots =
+                Object.keys(data || {}).map(id => ({
 
-                if (!data) {
+                    id,
+                    ...data[id]
 
-                    document
-                        .getElementById(
-                            'grid'
-                        )
-                        .innerHTML =
-                        `
-                        <div class="loader">
-                            Nenhum bot encontrado.
-                        </div>
-                        `;
+                }));
 
-                    return;
-
-                }
-
-                bots =
-                    Object.keys(data).map(id => ({
-
-                        id,
-
-                        ...data[id]
-
-                    }));
-
-                atualizarContadores();
-
-                renderizar(
-                    bots
-                );
-
-                const badge =
-                    document.getElementById(
-                        'statusBadge'
-                    );
-
-                badge.innerHTML =
-                    `
-                    <i data-lucide="check-circle" size="15"></i>
-                    Banco sincronizado
-                    `;
-
-            }
-
-            catch (err) {
-
-                console.log(err);
-
-                document
-                    .getElementById(
-                        'grid'
-                    )
-                    .innerHTML =
-                    `
-                    <div class="loader">
-                        ❌ Erro ao conectar no Firebase
-                    </div>
-                    `;
-
-            }
-
-            lucide.createIcons();
+            renderizar();
 
         }
 
-        function diasRestantes(data) {
-
-            const hoje =
-                new Date();
-
-            const vencimento =
-                new Date(data);
-
-            const diff =
-                vencimento - hoje;
-
-            return Math.ceil(
-                diff / (
-                    1000 *
-                    60 *
-                    60 *
-                    24
-                )
-            );
-
-        }
-
-        function renderizar(lista) {
+        function renderizar() {
 
             const grid =
-                document.getElementById(
-                    'grid'
-                );
+                document.getElementById('grid');
 
-            grid.innerHTML =
-                '';
+            grid.innerHTML = '';
 
-            lista.forEach(bot => {
-
-                const dias =
-                    diasRestantes(
-                        bot.vencimento
-                    );
-
-                let classePrazo =
-                    '';
-
-                let textoPrazo =
-                    `${dias} dias restantes`;
-
-                if (dias <= 5) {
-
-                    classePrazo =
-                        'warn';
-
-                    textoPrazo =
-                        `Vence em ${dias} dias`;
-
-                }
-
-                if (dias <= 0) {
-
-                    classePrazo =
-                        'danger';
-
-                    textoPrazo =
-                        'Mensalidade vencida';
-
-                }
+            bots.forEach(bot => {
 
                 const online =
-                    bot.status ===
-                    'online';
+                    bot.status === 'online';
 
                 const card =
-                    document.createElement(
-                        'div'
-                    );
+                    document.createElement('div');
 
-                card.className =
-                    'card';
+                card.className = 'card';
 
-                card.innerHTML =
-                    `
+                card.innerHTML = `
+
                     <div class="status ${online ? 'online' : 'offline'}">
                         ${online ? 'ONLINE' : 'OFFLINE'}
                     </div>
 
                     <h2>
-                        ${bot.nome || 'Bot sem nome'}
+                        ${bot.nome}
                     </h2>
 
                     <div class="bot-id">
@@ -1115,83 +470,34 @@
                     <div class="stats">
 
                         <div class="row">
-
-                            <div class="row-left">
-
-                                <i data-lucide="shield-check" size="16"></i>
-
-                                Plano
-
-                            </div>
-
-                            <div class="row-value">
-                                ${bot.plano || '---'}
-                            </div>
-
+                            <span>Cliente</span>
+                            <strong>${bot.cliente}</strong>
                         </div>
 
                         <div class="row">
-
-                            <div class="row-left">
-
-                                <i data-lucide="calendar-days" size="16"></i>
-
-                                Vencimento
-
-                            </div>
-
-                            <div class="row-value">
-                                ${bot.vencimento}
-                            </div>
-
+                            <span>Plano</span>
+                            <strong>${bot.plano}</strong>
                         </div>
 
                         <div class="row">
-
-                            <div class="row-left">
-
-                                <i data-lucide="clock-3" size="16"></i>
-
-                                Status prazo
-
-                            </div>
-
-                            <div class="row-value ${classePrazo}">
-                                ${textoPrazo}
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-
-                            <div class="row-left">
-
-                                <i data-lucide="user" size="16"></i>
-
-                                Cliente
-
-                            </div>
-
-                            <div class="row-value">
-                                ${bot.cliente || '---'}
-                            </div>
-
+                            <span>Vencimento</span>
+                            <strong>${bot.vencimento}</strong>
                         </div>
 
                     </div>
 
-                    <button class="button">
+                    <button
+                        class="button"
+                        onclick="abrirModal('${bot.id}')"
+                    >
 
-                        <i data-lucide="external-link" size="17"></i>
-
-                        GERENCIAR BOT
+                        MAIS...
 
                     </button>
-                    `;
 
-                grid.appendChild(
-                    card
-                );
+                `;
+
+                grid.appendChild(card);
 
             });
 
@@ -1199,150 +505,69 @@
 
         }
 
-        function atualizarContadores() {
+        function abrirModal(id) {
+
+            const bot =
+                bots.find(b => b.id === id);
 
             document
-                .getElementById(
-                    'count-all'
-                )
+                .getElementById('modalNome')
                 .innerText =
-                bots.length;
+                bot.nome;
 
             document
-                .getElementById(
-                    'count-online'
-                )
-                .innerText =
-                bots.filter(
-                    bot =>
-                    bot.status ===
-                    'online'
-                ).length;
+                .getElementById('modalContent')
+                .innerHTML = `
+
+                    <div class="modal-box">
+                        <span>Cliente</span>
+                        <h3>${bot.cliente}</h3>
+                    </div>
+
+                    <div class="modal-box">
+                        <span>Status</span>
+                        <h3>${bot.status}</h3>
+                    </div>
+
+                    <div class="modal-box">
+                        <span>RAM</span>
+                        <h3>${bot.ram || '---'}</h3>
+                    </div>
+
+                    <div class="modal-box">
+                        <span>CPU</span>
+                        <h3>${bot.cpu || '---'}</h3>
+                    </div>
+
+                    <div class="modal-box">
+                        <span>Servidores</span>
+                        <h3>${bot.servidores || 0}</h3>
+                    </div>
+
+                    <div class="modal-box">
+                        <span>Comandos</span>
+                        <h3>${bot.comandos || 0}</h3>
+                    </div>
+
+            `;
 
             document
-                .getElementById(
-                    'count-warn'
-                )
-                .innerText =
-                bots.filter(bot => {
-
-                    const dias =
-                        diasRestantes(
-                            bot.vencimento
-                        );
-
-                    return dias <= 5;
-
-                }).length;
+                .getElementById('modalOverlay')
+                .style.display =
+                'flex';
 
         }
 
-        function filtrar(tipo, event) {
+        function fecharModal() {
 
             document
-                .querySelectorAll(
-                    '.menu-item'
-                )
-                .forEach(item => {
-
-                    item.classList.remove(
-                        'active'
-                    );
-
-                });
-
-            event.currentTarget
-                .classList.add(
-                    'active'
-                );
-
-            if (tipo === 'all') {
-
-                renderizar(
-                    bots
-                );
-
-            }
-
-            if (tipo === 'online') {
-
-                renderizar(
-
-                    bots.filter(bot =>
-                        bot.status ===
-                        'online'
-                    )
-
-                );
-
-            }
-
-            if (tipo === 'vencendo') {
-
-                renderizar(
-
-                    bots.filter(bot => {
-
-                        const dias =
-                            diasRestantes(
-                                bot.vencimento
-                            );
-
-                        return dias <= 5;
-
-                    })
-
-                );
-
-            }
+                .getElementById('modalOverlay')
+                .style.display =
+                'none';
 
         }
-
-        document
-            .getElementById(
-                'search'
-            )
-
-            .addEventListener(
-                'input',
-                e => {
-
-                    const termo =
-                        e.target.value
-                            .toLowerCase();
-
-                    const filtrados =
-                        bots.filter(bot =>
-
-                            bot.nome
-                                ?.toLowerCase()
-                                .includes(
-                                    termo
-                                )
-
-                            ||
-
-                            bot.id
-                                .toLowerCase()
-                                .includes(
-                                    termo
-                                )
-
-                        );
-
-                    renderizar(
-                        filtrados
-                    );
-
-                }
-            );
 
         carregarBots();
-
-        setInterval(
-            carregarBots,
-            60000
-        );
 
     </script>
 
