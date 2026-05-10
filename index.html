@@ -1,324 +1,1350 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Pro | Smart Applications</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8" />
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    />
+
+    <title>
+        Smart Applications
+    </title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    />
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    />
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    />
+
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
+
         :root {
-            --primary: #5865F2;
-            --primary-glow: rgba(88, 101, 242, 0.3);
-            --bg-deep: #080a12;
-            --bg-surface: #111827;
-            --bg-card: rgba(22, 27, 34, 0.7);
-            --text-main: #f9fafb;
-            --text-muted: #9ca3af;
-            --border: rgba(255, 255, 255, 0.08);
-            --status-on: #10b981;
-            --status-off: #ef4444;
-            --status-warn: #f59e0b;
+
+            --primary:
+                #5865F2;
+
+            --primary-dark:
+                #4752C4;
+
+            --background:
+                #080A12;
+
+            --surface:
+                #111827;
+
+            --card:
+                rgba(17, 24, 39, 0.75);
+
+            --border:
+                rgba(255,255,255,0.08);
+
+            --text:
+                #F9FAFB;
+
+            --muted:
+                #9CA3AF;
+
+            --success:
+                #10B981;
+
+            --danger:
+                #EF4444;
+
+            --warning:
+                #F59E0B;
+
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
+        * {
+
+            margin:
+                0;
+
+            padding:
+                0;
+
+            box-sizing:
+                border-box;
+
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-deep);
-            color: var(--text-main);
-            line-height: 1.6;
+
+            background:
+                var(--background);
+
+            color:
+                var(--text);
+
+            font-family:
+                'Inter',
+                sans-serif;
+
         }
 
-        /* Header */
         header {
-            height: 300px;
-            background: radial-gradient(circle at top right, rgba(88, 101, 242, 0.15), transparent),
-                        linear-gradient(to bottom, #0f172a, var(--bg-deep));
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; border-bottom: 1px solid var(--border);
-            padding: 20px;
+
+            width:
+                100%;
+
+            min-height:
+                320px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            flex-direction:
+                column;
+
+            text-align:
+                center;
+
+            padding:
+                30px;
+
+            border-bottom:
+                1px solid var(--border);
+
+            background:
+                radial-gradient(
+                    circle at top right,
+                    rgba(88,101,242,.25),
+                    transparent 40%
+                ),
+                linear-gradient(
+                    to bottom,
+                    #0f172a,
+                    #080A12
+                );
+
         }
 
-        .badge-status {
-            background: rgba(16, 185, 129, 0.1);
-            color: var(--status-on);
-            padding: 6px 16px; border-radius: 20px;
-            font-size: 12px; font-weight: 600;
-            border: 1px solid var(--status-on);
-            margin-bottom: 15px; display: flex; align-items: center; gap: 8px;
+        .status-badge {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                8px;
+
+            padding:
+                8px 18px;
+
+            border-radius:
+                999px;
+
+            border:
+                1px solid var(--success);
+
+            background:
+                rgba(16,185,129,.1);
+
+            color:
+                var(--success);
+
+            font-size:
+                13px;
+
+            font-weight:
+                700;
+
+            margin-bottom:
+                18px;
+
         }
 
-        header h1 { font-size: clamp(28px, 5vw, 48px); font-weight: 800; letter-spacing: -1px; }
-        header p { color: var(--text-muted); margin-top: 10px; font-size: 16px; max-width: 500px; }
+        header h1 {
 
-        /* Search */
-        .search-area { max-width: 600px; width: 92%; margin: -30px auto 0; position: relative; z-index: 10; }
-        .search-area input {
-            width: 100%; padding: 18px 20px 18px 55px;
-            background: var(--bg-surface); border: 1px solid var(--border);
-            border-radius: 14px; color: white; font-size: 16px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4); transition: 0.3s;
+            font-size:
+                clamp(
+                    34px,
+                    5vw,
+                    58px
+                );
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                -2px;
+
         }
-        .search-area input:focus { border-color: var(--primary); box-shadow: 0 0 0 4px var(--primary-glow); }
-        .search-icon { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
 
-        /* Main Grid */
+        header p {
+
+            margin-top:
+                15px;
+
+            max-width:
+                700px;
+
+            color:
+                var(--muted);
+
+            font-size:
+                17px;
+
+            line-height:
+                1.7;
+
+        }
+
+        .search-box {
+
+            width:
+                92%;
+
+            max-width:
+                700px;
+
+            margin:
+                -35px auto 0;
+
+            position:
+                relative;
+
+            z-index:
+                10;
+
+        }
+
+        .search-box input {
+
+            width:
+                100%;
+
+            padding:
+                18px 20px 18px 58px;
+
+            border-radius:
+                18px;
+
+            border:
+                1px solid var(--border);
+
+            background:
+                var(--surface);
+
+            color:
+                white;
+
+            font-size:
+                15px;
+
+            outline:
+                none;
+
+            transition:
+                .25s;
+
+            box-shadow:
+                0 20px 50px rgba(0,0,0,.45);
+
+        }
+
+        .search-box input:focus {
+
+            border-color:
+                var(--primary);
+
+            box-shadow:
+                0 0 0 4px rgba(88,101,242,.2);
+
+        }
+
+        .search-icon {
+
+            position:
+                absolute;
+
+            left:
+                18px;
+
+            top:
+                50%;
+
+            transform:
+                translateY(-50%);
+
+            color:
+                var(--muted);
+
+        }
+
         .container {
-            display: grid; grid-template-columns: 280px 1fr;
-            max-width: 1400px; margin: 60px auto; gap: 40px; padding: 0 20px;
+
+            width:
+                100%;
+
+            max-width:
+                1450px;
+
+            margin:
+                60px auto;
+
+            padding:
+                0 20px;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                280px 1fr;
+
+            gap:
+                35px;
+
         }
 
-        .sidebar-nav { position: sticky; top: 30px; }
-        .nav-group {
-            background: var(--bg-surface); border: 1px solid var(--border);
-            border-radius: 16px; padding: 20px;
-        }
-        .nav-item {
-            display: flex; align-items: center; justify-content: space-between;
-            padding: 12px; border-radius: 10px; color: var(--text-muted);
-            cursor: pointer; transition: 0.2s; margin-bottom: 5px;
-        }
-        .nav-item:hover { background: rgba(255,255,255,0.03); color: white; }
-        .nav-item.active { background: var(--primary); color: white; font-weight: 600; }
-        .count-pill { background: rgba(0,0,0,0.2); padding: 2px 8px; border-radius: 8px; font-size: 12px; }
+        .sidebar {
 
-        /* Cards Grid */
-        .bots-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; }
-        
-        .bot-card {
-            background: var(--bg-card); border: 1px solid var(--border);
-            border-radius: 20px; padding: 25px; position: relative;
-            transition: 0.3s; display: flex; flex-direction: column; gap: 15px;
-            backdrop-filter: blur(10px);
+            position:
+                sticky;
+
+            top:
+                20px;
+
+            height:
+                fit-content;
+
         }
-        .bot-card:hover { transform: translateY(-5px); border-color: var(--primary); }
 
-        .bot-status {
-            position: absolute; top: 20px; right: 20px;
-            font-size: 11px; font-weight: 700; text-transform: uppercase;
-            padding: 4px 10px; border-radius: 6px; display: flex; align-items: center; gap: 5px;
+        .sidebar-card {
+
+            background:
+                var(--surface);
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                18px;
+
+            padding:
+                20px;
+
         }
-        .status-on { background: rgba(16,185,129,0.1); color: var(--status-on); border: 1px solid var(--status-on); }
-        .status-off { background: rgba(239,68,68,0.1); color: var(--status-off); border: 1px solid var(--status-off); }
 
-        .bot-info h3 { font-size: 20px; margin-bottom: 5px; color: #fff; }
-        .bot-id { font-size: 12px; font-family: monospace; color: var(--text-muted); }
+        .sidebar-title {
 
-        .bot-stats {
-            background: rgba(0,0,0,0.2); border-radius: 12px; padding: 15px;
-            display: flex; flex-direction: column; gap: 10px;
+            color:
+                var(--muted);
+
+            font-size:
+                12px;
+
+            font-weight:
+                700;
+
+            margin-bottom:
+                15px;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                1px;
+
         }
-        .stat-row { display: flex; justify-content: space-between; font-size: 14px; }
-        .stat-label { color: var(--text-muted); display: flex; align-items: center; gap: 8px; }
-        .stat-value { font-weight: 600; }
 
-        .btn-manage {
-            margin-top: 10px; padding: 12px; border-radius: 10px;
-            border: none; background: var(--primary); color: white;
-            font-weight: 600; cursor: pointer; transition: 0.2s;
-            display: flex; align-items: center; justify-content: center; gap: 8px;
+        .menu-item {
+
+            width:
+                100%;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            padding:
+                12px;
+
+            border-radius:
+                12px;
+
+            margin-bottom:
+                8px;
+
+            cursor:
+                pointer;
+
+            transition:
+                .2s;
+
+            color:
+                var(--muted);
+
         }
-        .btn-manage:hover { background: #4752c4; transform: scale(1.02); }
 
-        /* State Helpers */
-        .text-danger { color: var(--status-off); }
-        .text-warn { color: var(--status-warn); }
-        .loader { grid-column: 1/-1; text-align: center; padding: 100px; color: var(--text-muted); }
-        .spinner { animation: spin 1s linear infinite; margin-bottom: 10px; }
-        @keyframes spin { 100% { transform: rotate(360deg); } }
+        .menu-item:hover {
 
-        @media (max-width: 1000px) {
-            .container { grid-template-columns: 1fr; }
-            .sidebar-nav { display: none; }
+            background:
+                rgba(255,255,255,.04);
+
+            color:
+                white;
+
         }
+
+        .menu-item.active {
+
+            background:
+                var(--primary);
+
+            color:
+                white;
+
+            font-weight:
+                700;
+
+        }
+
+        .pill {
+
+            background:
+                rgba(0,0,0,.25);
+
+            padding:
+                4px 10px;
+
+            border-radius:
+                999px;
+
+            font-size:
+                12px;
+
+        }
+
+        .grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fill,
+                    minmax(340px, 1fr)
+                );
+
+            gap:
+                24px;
+
+        }
+
+        .card {
+
+            position:
+                relative;
+
+            background:
+                var(--card);
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                24px;
+
+            padding:
+                24px;
+
+            backdrop-filter:
+                blur(10px);
+
+            transition:
+                .25s;
+
+            overflow:
+                hidden;
+
+        }
+
+        .card:hover {
+
+            transform:
+                translateY(-5px);
+
+            border-color:
+                var(--primary);
+
+        }
+
+        .card::before {
+
+            content:
+                '';
+
+            position:
+                absolute;
+
+            inset:
+                0;
+
+            background:
+                radial-gradient(
+                    circle at top right,
+                    rgba(88,101,242,.15),
+                    transparent 45%
+                );
+
+            pointer-events:
+                none;
+
+        }
+
+        .status {
+
+            position:
+                absolute;
+
+            top:
+                18px;
+
+            right:
+                18px;
+
+            padding:
+                6px 12px;
+
+            border-radius:
+                999px;
+
+            font-size:
+                11px;
+
+            font-weight:
+                700;
+
+            text-transform:
+                uppercase;
+
+        }
+
+        .online {
+
+            background:
+                rgba(16,185,129,.12);
+
+            border:
+                1px solid var(--success);
+
+            color:
+                var(--success);
+
+        }
+
+        .offline {
+
+            background:
+                rgba(239,68,68,.12);
+
+            border:
+                1px solid var(--danger);
+
+            color:
+                var(--danger);
+
+        }
+
+        .card h2 {
+
+            font-size:
+                23px;
+
+            margin-bottom:
+                6px;
+
+        }
+
+        .bot-id {
+
+            color:
+                var(--muted);
+
+            font-size:
+                13px;
+
+            font-family:
+                monospace;
+
+        }
+
+        .stats {
+
+            margin-top:
+                22px;
+
+            background:
+                rgba(0,0,0,.22);
+
+            border-radius:
+                16px;
+
+            padding:
+                16px;
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+            gap:
+                14px;
+
+        }
+
+        .row {
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            gap:
+                10px;
+
+        }
+
+        .row-left {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                8px;
+
+            color:
+                var(--muted);
+
+            font-size:
+                14px;
+
+        }
+
+        .row-value {
+
+            font-weight:
+                700;
+
+            text-align:
+                right;
+
+        }
+
+        .warn {
+
+            color:
+                var(--warning);
+
+        }
+
+        .danger {
+
+            color:
+                var(--danger);
+
+        }
+
+        .button {
+
+            width:
+                100%;
+
+            margin-top:
+                18px;
+
+            border:
+                none;
+
+            border-radius:
+                14px;
+
+            padding:
+                14px;
+
+            background:
+                var(--primary);
+
+            color:
+                white;
+
+            font-weight:
+                700;
+
+            cursor:
+                pointer;
+
+            transition:
+                .2s;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            gap:
+                8px;
+
+        }
+
+        .button:hover {
+
+            background:
+                var(--primary-dark);
+
+            transform:
+                scale(1.02);
+
+        }
+
+        .loader {
+
+            width:
+                100%;
+
+            padding:
+                120px 20px;
+
+            text-align:
+                center;
+
+            color:
+                var(--muted);
+
+        }
+
+        .spin {
+
+            animation:
+                spin 1s linear infinite;
+
+        }
+
+        @keyframes spin {
+
+            100% {
+
+                transform:
+                    rotate(360deg);
+
+            }
+
+        }
+
+        @media (
+            max-width: 950px
+        ) {
+
+            .container {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+            .sidebar {
+
+                display:
+                    none;
+
+            }
+
+        }
+
     </style>
+
 </head>
+
 <body>
 
     <header>
-        <div class="badge-status" id="connection-badge">
-            <i data-lucide="loader-2" class="spinner" size="14"></i> Conectando ao Firebase...
+
+        <div
+            class="status-badge"
+            id="statusBadge"
+        >
+
+            <i
+                data-lucide="loader-2"
+                class="spin"
+                size="15"
+            ></i>
+
+            Conectando ao Firebase...
+
         </div>
-        <h1>Painel Smart Applications</h1>
-        <p>Gerencie seus bots e mensalidades em tempo real através do banco de dados.</p>
+
+        <h1>
+            Smart Applications
+        </h1>
+
+        <p>
+            Painel profissional sincronizado em tempo real
+            com o Firebase para gerenciamento completo
+            de bots, mensalidades e status.
+        </p>
+
     </header>
 
-    <div class="search-area">
-        <i data-lucide="search" class="search-icon" size="20"></i>
-        <input type="text" id="botSearch" placeholder="Pesquisar por nome ou ID do bot...">
+    <div class="search-box">
+
+        <i
+            data-lucide="search"
+            class="search-icon"
+            size="20"
+        ></i>
+
+        <input
+            type="text"
+            id="search"
+            placeholder="Pesquisar por nome ou ID..."
+        />
+
     </div>
 
     <div class="container">
-        <aside class="sidebar-nav">
-            <div class="nav-group">
-                <h4 style="font-size: 12px; color: var(--text-muted); margin-bottom: 15px; text-transform: uppercase;">Visão Geral</h4>
-                <div class="nav-item active" onclick="filterBots('all')">
-                    <span>Todos os Bots</span>
-                    <span class="count-pill" id="total-count">0</span>
+
+        <aside class="sidebar">
+
+            <div class="sidebar-card">
+
+                <div class="sidebar-title">
+                    Dashboard
                 </div>
-                <div class="nav-item" onclick="filterBots('online')">
-                    <span>Online agora</span>
-                    <span class="count-pill" id="online-count">0</span>
+
+                <div
+                    class="menu-item active"
+                    onclick="filtrar('all', event)"
+                >
+
+                    <span>
+                        Todos os Bots
+                    </span>
+
+                    <span
+                        class="pill"
+                        id="count-all"
+                    >
+                        0
+                    </span>
+
                 </div>
-                <div class="nav-item" onclick="filterBots('expiring')">
-                    <span>Vencendo em breve</span>
-                    <span class="count-pill" id="warn-count">0</span>
+
+                <div
+                    class="menu-item"
+                    onclick="filtrar('online', event)"
+                >
+
+                    <span>
+                        Online
+                    </span>
+
+                    <span
+                        class="pill"
+                        id="count-online"
+                    >
+                        0
+                    </span>
+
                 </div>
+
+                <div
+                    class="menu-item"
+                    onclick="filtrar('vencendo', event)"
+                >
+
+                    <span>
+                        Vencendo
+                    </span>
+
+                    <span
+                        class="pill"
+                        id="count-warn"
+                    >
+                        0
+                    </span>
+
+                </div>
+
             </div>
+
         </aside>
 
-        <main class="bots-grid" id="botsContainer">
+        <main
+            class="grid"
+            id="grid"
+        >
+
             <div class="loader">
-                <i data-lucide="refresh-cw" class="spinner" size="40"></i>
-                <p>Sincronizando dados...</p>
+
+                <i
+                    data-lucide="loader-2"
+                    class="spin"
+                    size="42"
+                ></i>
+
+                <p>
+                    Sincronizando banco...
+                </p>
+
             </div>
+
         </main>
+
     </div>
 
     <script>
-        // URL configurada para o seu nó 'bateponto'
-        const FIREBASE_URL = "https://smart-applications-6ced1-default-rtdb.firebaseio.com/";
-        
-        let allBots = [];
 
-        async function fetchData() {
-            const container = document.getElementById('botsContainer');
-            const badge = document.getElementById('connection-badge');
+        const FIREBASE_URL =
+            'https://smart-applications-6ced1-default-rtdb.firebaseio.com/bots.json';
+
+        let bots =
+            [];
+
+        async function carregarBots() {
 
             try {
-                const response = await fetch(FIREBASE_URL);
-                if (!response.ok) throw new Error("Erro de permissão (401/404)");
 
-                const data = await response.json();
+                const req =
+                    await fetch(
+                        FIREBASE_URL
+                    );
+
+                const data =
+                    await req.json();
 
                 if (!data) {
-                    container.innerHTML = `<div class="loader">O nó 'bateponto' está vazio. Adicione dados no Firebase!</div>`;
-                    badge.innerHTML = `<i data-lucide="circle-slash" size="14"></i> Banco Vazio`;
-                    badge.style.color = "var(--status-warn)";
+
+                    document
+                        .getElementById(
+                            'grid'
+                        )
+                        .innerHTML =
+                        `
+                        <div class="loader">
+                            Nenhum bot encontrado.
+                        </div>
+                        `;
+
                     return;
+
                 }
 
-                // Transformar objeto em array e limpar dados
-                allBots = Object.keys(data).map(key => ({
-                    id: key,
-                    ...data[key]
-                }));
+                bots =
+                    Object.keys(data).map(id => ({
 
-                badge.innerHTML = `<i data-lucide="check-circle" size="14"></i> Banco Sincronizado`;
-                badge.style.color = "var(--status-on)";
-                badge.style.borderColor = "var(--status-on)";
-                badge.style.background = "rgba(16,185,129,0.1)";
+                        id,
 
-                updateStats();
-                renderCards(allBots);
+                        ...data[id]
 
-            } catch (err) {
-                console.error(err);
-                container.innerHTML = `<div class="loader" style="color:var(--status-off)">❌ Erro de Conexão: Verifique as Rules do Firebase.</div>`;
-                badge.innerHTML = `<i data-lucide="x-circle" size="14"></i> Erro de Acesso`;
-                badge.style.color = "var(--status-off)";
+                    }));
+
+                atualizarContadores();
+
+                renderizar(
+                    bots
+                );
+
+                const badge =
+                    document.getElementById(
+                        'statusBadge'
+                    );
+
+                badge.innerHTML =
+                    `
+                    <i data-lucide="check-circle" size="15"></i>
+                    Banco sincronizado
+                    `;
+
             }
+
+            catch (err) {
+
+                console.log(err);
+
+                document
+                    .getElementById(
+                        'grid'
+                    )
+                    .innerHTML =
+                    `
+                    <div class="loader">
+                        ❌ Erro ao conectar no Firebase
+                    </div>
+                    `;
+
+            }
+
             lucide.createIcons();
+
         }
 
-        function calculateRemainingDays(dateString) {
-            if (!dateString) return null;
-            const today = new Date();
-            const venc = new Date(dateString);
-            const diff = venc - today;
-            return Math.ceil(diff / (1000 * 60 * 60 * 24));
+        function diasRestantes(data) {
+
+            const hoje =
+                new Date();
+
+            const vencimento =
+                new Date(data);
+
+            const diff =
+                vencimento - hoje;
+
+            return Math.ceil(
+                diff / (
+                    1000 *
+                    60 *
+                    60 *
+                    24
+                )
+            );
+
         }
 
-        function renderCards(bots) {
-            const container = document.getElementById('botsContainer');
-            container.innerHTML = "";
+        function renderizar(lista) {
 
-            bots.forEach(bot => {
-                const days = calculateRemainingDays(bot.vencimento);
-                const isOnline = bot.status?.toLowerCase() === 'online';
-                
-                let timeClass = "";
-                let timeText = `${days} dias restantes`;
+            const grid =
+                document.getElementById(
+                    'grid'
+                );
 
-                if (days <= 0) {
-                    timeClass = "text-danger";
-                    timeText = "Mensalidade Vencida";
-                } else if (days <= 5) {
-                    timeClass = "text-warn";
-                    timeText = `Vence em ${days} dias`;
+            grid.innerHTML =
+                '';
+
+            lista.forEach(bot => {
+
+                const dias =
+                    diasRestantes(
+                        bot.vencimento
+                    );
+
+                let classePrazo =
+                    '';
+
+                let textoPrazo =
+                    `${dias} dias restantes`;
+
+                if (dias <= 5) {
+
+                    classePrazo =
+                        'warn';
+
+                    textoPrazo =
+                        `Vence em ${dias} dias`;
+
                 }
 
-                const card = document.createElement('div');
-                card.className = 'bot-card';
-                card.innerHTML = `
-                    <div class="bot-status ${isOnline ? 'status-on' : 'status-off'}">
-                        ${isOnline ? 'Online' : 'Offline'}
+                if (dias <= 0) {
+
+                    classePrazo =
+                        'danger';
+
+                    textoPrazo =
+                        'Mensalidade vencida';
+
+                }
+
+                const online =
+                    bot.status ===
+                    'online';
+
+                const card =
+                    document.createElement(
+                        'div'
+                    );
+
+                card.className =
+                    'card';
+
+                card.innerHTML =
+                    `
+                    <div class="status ${online ? 'online' : 'offline'}">
+                        ${online ? 'ONLINE' : 'OFFLINE'}
                     </div>
-                    <div class="bot-info">
-                        <h3>${bot.nome || 'Bot sem nome'}</h3>
-                        <span class="bot-id">ID: ${bot.id}</span>
+
+                    <h2>
+                        ${bot.nome || 'Bot sem nome'}
+                    </h2>
+
+                    <div class="bot-id">
+                        ID: ${bot.id}
                     </div>
-                    <div class="bot-stats">
-                        <div class="stat-row">
-                            <span class="stat-label"><i data-lucide="calendar-days" size="14"></i> Vencimento</span>
-                            <span class="stat-value">${bot.vencimento || '--/--/--'}</span>
+
+                    <div class="stats">
+
+                        <div class="row">
+
+                            <div class="row-left">
+
+                                <i data-lucide="shield-check" size="16"></i>
+
+                                Plano
+
+                            </div>
+
+                            <div class="row-value">
+                                ${bot.plano || '---'}
+                            </div>
+
                         </div>
-                        <div class="stat-row">
-                            <span class="stat-label"><i data-lucide="clock" size="14"></i> Status Prazo</span>
-                            <span class="stat-value ${timeClass}">${timeText}</span>
+
+                        <div class="row">
+
+                            <div class="row-left">
+
+                                <i data-lucide="calendar-days" size="16"></i>
+
+                                Vencimento
+
+                            </div>
+
+                            <div class="row-value">
+                                ${bot.vencimento}
+                            </div>
+
                         </div>
-                        <div class="stat-row">
-                            <span class="stat-label"><i data-lucide="shield" size="14"></i> Plano</span>
-                            <span class="stat-value">${bot.plano || 'Standard'}</span>
+
+                        <div class="row">
+
+                            <div class="row-left">
+
+                                <i data-lucide="clock-3" size="16"></i>
+
+                                Status prazo
+
+                            </div>
+
+                            <div class="row-value ${classePrazo}">
+                                ${textoPrazo}
+                            </div>
+
                         </div>
+
+                        <div class="row">
+
+                            <div class="row-left">
+
+                                <i data-lucide="user" size="16"></i>
+
+                                Cliente
+
+                            </div>
+
+                            <div class="row-value">
+                                ${bot.cliente || '---'}
+                            </div>
+
+                        </div>
+
                     </div>
-                    <button class="btn-manage">
-                        <i data-lucide="external-link" size="16"></i> Acessar Painel
+
+                    <button class="button">
+
+                        <i data-lucide="external-link" size="17"></i>
+
+                        GERENCIAR BOT
+
                     </button>
-                `;
-                container.appendChild(card);
+                    `;
+
+                grid.appendChild(
+                    card
+                );
+
             });
+
             lucide.createIcons();
+
         }
 
-        function updateStats() {
-            document.getElementById('total-count').innerText = allBots.length;
-            document.getElementById('online-count').innerText = allBots.filter(b => b.status === 'online').length;
-            document.getElementById('warn-count').innerText = allBots.filter(b => {
-                const d = calculateRemainingDays(b.vencimento);
-                return d !== null && d <= 5;
-            }).length;
+        function atualizarContadores() {
+
+            document
+                .getElementById(
+                    'count-all'
+                )
+                .innerText =
+                bots.length;
+
+            document
+                .getElementById(
+                    'count-online'
+                )
+                .innerText =
+                bots.filter(
+                    bot =>
+                    bot.status ===
+                    'online'
+                ).length;
+
+            document
+                .getElementById(
+                    'count-warn'
+                )
+                .innerText =
+                bots.filter(bot => {
+
+                    const dias =
+                        diasRestantes(
+                            bot.vencimento
+                        );
+
+                    return dias <= 5;
+
+                }).length;
+
         }
 
-        // Busca em tempo real
-        document.getElementById('botSearch').addEventListener('input', (e) => {
-            const term = e.target.value.toLowerCase();
-            const filtered = allBots.filter(b => 
-                b.nome?.toLowerCase().includes(term) || 
-                b.id.toLowerCase().includes(term)
+        function filtrar(tipo, event) {
+
+            document
+                .querySelectorAll(
+                    '.menu-item'
+                )
+                .forEach(item => {
+
+                    item.classList.remove(
+                        'active'
+                    );
+
+                });
+
+            event.currentTarget
+                .classList.add(
+                    'active'
+                );
+
+            if (tipo === 'all') {
+
+                renderizar(
+                    bots
+                );
+
+            }
+
+            if (tipo === 'online') {
+
+                renderizar(
+
+                    bots.filter(bot =>
+                        bot.status ===
+                        'online'
+                    )
+
+                );
+
+            }
+
+            if (tipo === 'vencendo') {
+
+                renderizar(
+
+                    bots.filter(bot => {
+
+                        const dias =
+                            diasRestantes(
+                                bot.vencimento
+                            );
+
+                        return dias <= 5;
+
+                    })
+
+                );
+
+            }
+
+        }
+
+        document
+            .getElementById(
+                'search'
+            )
+
+            .addEventListener(
+                'input',
+                e => {
+
+                    const termo =
+                        e.target.value
+                            .toLowerCase();
+
+                    const filtrados =
+                        bots.filter(bot =>
+
+                            bot.nome
+                                ?.toLowerCase()
+                                .includes(
+                                    termo
+                                )
+
+                            ||
+
+                            bot.id
+                                .toLowerCase()
+                                .includes(
+                                    termo
+                                )
+
+                        );
+
+                    renderizar(
+                        filtrados
+                    );
+
+                }
             );
-            renderCards(filtered);
-        });
 
-        // Filtros laterais
-        function filterBots(type) {
-            document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
-            event.currentTarget.classList.add('active');
+        carregarBots();
 
-            if (type === 'all') renderCards(allBots);
-            if (type === 'online') renderCards(allBots.filter(b => b.status === 'online'));
-            if (type === 'expiring') renderCards(allBots.filter(b => {
-                const d = calculateRemainingDays(b.vencimento);
-                return d !== null && d <= 5;
-            }));
-        }
+        setInterval(
+            carregarBots,
+            60000
+        );
 
-        // Inicialização
-        fetchData();
-        setInterval(fetchData, 60000); // Atualiza a cada 1 minuto
     </script>
+
 </body>
 </html>
