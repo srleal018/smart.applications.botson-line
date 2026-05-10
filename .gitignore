@@ -1,0 +1,18 @@
+# arquivos secretos
+config.js
+.env
+.env.local
+
+# node
+node_modules/
+
+# logs
+logs/
+*.log
+
+# vscode
+.vscode/
+
+# sistema
+.DS_Store
+Thumbs.db
