@@ -30,22 +30,18 @@
         rel="stylesheet"
     >
 
-    <script src="https://unpkg.com/lucide@latest"></script>
-
     <style>
 
         :root {
 
             --primary: #5865F2;
             --background: #080A12;
-            --surface: #111827;
-            --card: rgba(17,24,39,.75);
+            --card: #111827;
             --border: rgba(255,255,255,.08);
             --text: #F9FAFB;
             --muted: #9CA3AF;
             --success: #10B981;
             --danger: #EF4444;
-            --warning: #F59E0B;
 
         }
 
@@ -67,38 +63,50 @@
 
         header {
 
-            padding: 80px 20px;
+            padding: 90px 20px;
+
             text-align: center;
-            border-bottom: 1px solid var(--border);
+
+            border-bottom:
+                1px solid var(--border);
 
             background:
-                radial-gradient(circle at top right,
-                rgba(88,101,242,.25),
-                transparent 40%),
-                linear-gradient(to bottom,
-                #0f172a,
-                #080A12);
+                radial-gradient(
+                    circle at top right,
+                    rgba(88,101,242,.25),
+                    transparent 40%
+                ),
+                linear-gradient(
+                    to bottom,
+                    #0f172a,
+                    #080A12
+                );
 
         }
 
         header h1 {
 
-            font-size: 56px;
+            font-size: 60px;
             font-weight: 800;
 
         }
 
         header p {
 
-            margin-top: 15px;
+            margin-top: 16px;
+
             color: var(--muted);
+
+            font-size: 16px;
 
         }
 
         .container {
 
             max-width: 1400px;
+
             margin: auto;
+
             padding: 40px 20px;
 
         }
@@ -110,7 +118,7 @@
             grid-template-columns:
                 repeat(
                     auto-fill,
-                    minmax(340px,1fr)
+                    minmax(330px,1fr)
                 );
 
             gap: 24px;
@@ -128,13 +136,7 @@
 
             padding: 24px;
 
-            position: relative;
-
-            overflow: hidden;
-
             transition: .25s;
-
-            backdrop-filter: blur(10px);
 
         }
 
@@ -148,17 +150,17 @@
 
         .status {
 
-            position: absolute;
-
-            top: 18px;
-            right: 18px;
+            display: inline-block;
 
             padding: 6px 12px;
 
             border-radius: 999px;
 
             font-size: 11px;
+
             font-weight: 700;
+
+            margin-bottom: 18px;
 
         }
 
@@ -166,9 +168,9 @@
 
             background: rgba(16,185,129,.12);
 
-            color: var(--success);
-
             border: 1px solid var(--success);
+
+            color: var(--success);
 
         }
 
@@ -176,40 +178,27 @@
 
             background: rgba(239,68,68,.12);
 
-            color: var(--danger);
-
             border: 1px solid var(--danger);
+
+            color: var(--danger);
 
         }
 
         .card h2 {
 
-            font-size: 24px;
-            margin-bottom: 8px;
+            font-size: 25px;
+
+            margin-bottom: 20px;
 
         }
 
-        .bot-id {
-
-            color: var(--muted);
-            font-size: 13px;
-
-        }
-
-        .stats {
-
-            margin-top: 22px;
+        .info {
 
             display: flex;
+
             flex-direction: column;
 
-            gap: 12px;
-
-            background: rgba(0,0,0,.2);
-
-            padding: 18px;
-
-            border-radius: 16px;
+            gap: 14px;
 
         }
 
@@ -221,137 +210,37 @@
 
             align-items: center;
 
+            padding: 14px;
+
+            border-radius: 14px;
+
+            background: rgba(255,255,255,.03);
+
         }
 
         .row span {
 
             color: var(--muted);
 
+            font-size: 14px;
+
         }
 
-        .button {
+        .row strong {
+
+            font-size: 14px;
+
+        }
+
+        .loader {
 
             width: 100%;
 
-            margin-top: 18px;
+            text-align: center;
 
-            border: none;
-
-            background: var(--primary);
-
-            color: white;
-
-            padding: 14px;
-
-            border-radius: 14px;
-
-            cursor: pointer;
-
-            font-weight: 700;
-
-            transition: .2s;
-
-        }
-
-        .button:hover {
-
-            transform: scale(1.02);
-
-        }
-
-        .modal-overlay {
-
-            position: fixed;
-
-            inset: 0;
-
-            background: rgba(0,0,0,.7);
-
-            display: none;
-
-            align-items: center;
-
-            justify-content: center;
-
-            padding: 20px;
-
-            z-index: 999;
-
-            backdrop-filter: blur(8px);
-
-        }
-
-        .modal {
-
-            width: 100%;
-
-            max-width: 700px;
-
-            background: #111827;
-
-            border-radius: 24px;
-
-            border: 1px solid rgba(255,255,255,.08);
-
-            overflow: hidden;
-
-        }
-
-        .modal-header {
-
-            padding: 20px;
-
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-            border-bottom:
-                1px solid rgba(255,255,255,.08);
-
-        }
-
-        .modal-header button {
-
-            background: transparent;
-            border: none;
-            color: white;
-            font-size: 22px;
-            cursor: pointer;
-
-        }
-
-        .modal-content {
-
-            padding: 24px;
-
-            display: grid;
-
-            gap: 16px;
-
-        }
-
-        .modal-box {
-
-            background: rgba(255,255,255,.03);
-
-            border-radius: 16px;
-
-            padding: 16px;
-
-        }
-
-        .modal-box span {
+            padding: 120px 20px;
 
             color: var(--muted);
-            font-size: 13px;
-
-        }
-
-        .modal-box h3 {
-
-            margin-top: 6px;
 
         }
 
@@ -368,7 +257,7 @@
         </h1>
 
         <p>
-            Dashboard premium conectado em tempo real.
+            Painel profissional em tempo real.
         </p>
 
     </header>
@@ -378,61 +267,57 @@
         <div
             class="grid"
             id="grid"
-        ></div>
+        >
 
-    </div>
-
-    <div
-        class="modal-overlay"
-        id="modalOverlay"
-    >
-
-        <div class="modal">
-
-            <div class="modal-header">
-
-                <h2 id="modalNome">
-                    BOT
-                </h2>
-
-                <button onclick="fecharModal()">
-                    ✕
-                </button>
-
+            <div class="loader">
+                Carregando bots...
             </div>
-
-            <div
-                class="modal-content"
-                id="modalContent"
-            ></div>
 
         </div>
 
     </div>
 
-    <script src="./config.js"></script>
-
     <script>
+
+        const FIREBASE_URL =
+        'https://smart-applications-6ced1-default-rtdb.firebaseio.com/bots.json';
 
         let bots = [];
 
         async function carregarBots() {
 
-            const req =
-                await fetch(FIREBASE_URL);
+            try {
 
-            const data =
-                await req.json();
+                const req =
+                    await fetch(FIREBASE_URL);
 
-            bots =
-                Object.keys(data || {}).map(id => ({
+                const data =
+                    await req.json();
 
-                    id,
-                    ...data[id]
+                bots =
+                    Object.keys(data || {}).map(id => ({
 
-                }));
+                        id,
+                        ...data[id]
 
-            renderizar();
+                    }));
+
+                renderizar();
+
+            }
+
+            catch {
+
+                document
+                    .getElementById('grid')
+                    .innerHTML =
+                    `
+                    <div class="loader">
+                        Erro ao carregar banco.
+                    </div>
+                    `;
+
+            }
 
         }
 
@@ -451,49 +336,62 @@
                 const card =
                     document.createElement('div');
 
-                card.className = 'card';
+                card.className =
+                    'card';
 
                 card.innerHTML = `
 
                     <div class="status ${online ? 'online' : 'offline'}">
+
                         ${online ? 'ONLINE' : 'OFFLINE'}
+
                     </div>
 
                     <h2>
-                        ${bot.nome}
+
+                        ${bot.nome || 'Bot'}
+
                     </h2>
 
-                    <div class="bot-id">
-                        ID: ${bot.id}
+                    <div class="info">
+
+                        <div class="row">
+
+                            <span>
+                                Cliente
+                            </span>
+
+                            <strong>
+                                ${bot.cliente || '---'}
+                            </strong>
+
+                        </div>
+
+                        <div class="row">
+
+                            <span>
+                                Função
+                            </span>
+
+                            <strong>
+                                ${bot.funcao || '---'}
+                            </strong>
+
+                        </div>
+
+                        <div class="row">
+
+                            <span>
+                                Vencimento
+                            </span>
+
+                            <strong>
+                                ${bot.vencimento || '---'}
+                            </strong>
+
+                        </div>
+
                     </div>
-
-                    <div class="stats">
-
-                        <div class="row">
-                            <span>Cliente</span>
-                            <strong>${bot.cliente}</strong>
-                        </div>
-
-                        <div class="row">
-                            <span>Plano</span>
-                            <strong>${bot.plano}</strong>
-                        </div>
-
-                        <div class="row">
-                            <span>Vencimento</span>
-                            <strong>${bot.vencimento}</strong>
-                        </div>
-
-                    </div>
-
-                    <button
-                        class="button"
-                        onclick="abrirModal('${bot.id}')"
-                    >
-
-                        MAIS...
-
-                    </button>
 
                 `;
 
@@ -501,73 +399,14 @@
 
             });
 
-            lucide.createIcons();
-
-        }
-
-        function abrirModal(id) {
-
-            const bot =
-                bots.find(b => b.id === id);
-
-            document
-                .getElementById('modalNome')
-                .innerText =
-                bot.nome;
-
-            document
-                .getElementById('modalContent')
-                .innerHTML = `
-
-                    <div class="modal-box">
-                        <span>Cliente</span>
-                        <h3>${bot.cliente}</h3>
-                    </div>
-
-                    <div class="modal-box">
-                        <span>Status</span>
-                        <h3>${bot.status}</h3>
-                    </div>
-
-                    <div class="modal-box">
-                        <span>RAM</span>
-                        <h3>${bot.ram || '---'}</h3>
-                    </div>
-
-                    <div class="modal-box">
-                        <span>CPU</span>
-                        <h3>${bot.cpu || '---'}</h3>
-                    </div>
-
-                    <div class="modal-box">
-                        <span>Servidores</span>
-                        <h3>${bot.servidores || 0}</h3>
-                    </div>
-
-                    <div class="modal-box">
-                        <span>Comandos</span>
-                        <h3>${bot.comandos || 0}</h3>
-                    </div>
-
-            `;
-
-            document
-                .getElementById('modalOverlay')
-                .style.display =
-                'flex';
-
-        }
-
-        function fecharModal() {
-
-            document
-                .getElementById('modalOverlay')
-                .style.display =
-                'none';
-
         }
 
         carregarBots();
+
+        setInterval(
+            carregarBots,
+            60000
+        );
 
     </script>
 
