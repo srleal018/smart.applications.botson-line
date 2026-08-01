@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agente de Atas — Grêmio Estudantil</title>
+  <style>
+    :root { color-scheme: light; }
+    body { font-family: system-ui, sans-serif; margin: 0; background: #f4f6fb; color: #1c2333; }
+    header { background: #1f3b8a; color: #fff; padding: 20px 24px; }
+    header h1 { margin: 0; font-size: 20px; }
+    header p { margin: 4px 0 0; font-size: 14px; opacity: .85; }
+    main { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding: 24px; align-items: start; }
+    @media (max-width: 900px) { main { grid-template-columns: 1fr; } }
+    .card { background: #fff; border-radius: 10px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,.1); }
+    label { display: block; font-size: 13px; font-weight: 600; margin: 12px 0 4px; }
+    input, textarea, select { width: 100%; box-sizing: border-box; padding: 8px 10px; border: 1px solid #cbd2e1;
+      border-radius: 6px; font: inherit; }
+    textarea { min-height: 220px; resize: vertical; }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 12px; }
+    button { margin-top: 16px; background: #1f3b8a; color: #fff; border: 0; border-radius: 6px;
+      padding: 10px 18px; font-size: 15px; cursor: pointer; }
+    button:hover { background: #162c69; }
+    pre { white-space: pre-wrap; word-wrap: break-word; font-family: ui-monospace, monospace; font-size: 13px; }
+    .erro { background: #fde8e8; color: #8a1f1f; padding: 10px 12px; border-radius: 6px; }
+    .vazio { color: #6b7280; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Agente de Atas — Grêmio Estudantil</h1>
+    <p>Transforme anotações de reunião ou de ação em uma ata formal.</p>
+  </header>
+  <main>
+    <form class="card" method="post">
+      <div class="grid2">
+        <div>
+          <label for="tipo">Tipo de documento</label>
+          <select id="tipo" name="tipo">
+            <option value="reunião">Reunião ordinária</option>
+            <option value="reunião extraordinária">Reunião extraordinária</option>
+            <option value="assembleia geral">Assembleia geral</option>
+            <option value="ação/evento">Ação / evento</option>
+          </select>
+        </div>
+        <div>
+          <label for="gremio">Nome do grêmio</label>
+          <input id="gremio" name="gremio" value="{{ form.get('gremio', '') }}" placeholder="Grêmio Estudantil ...">
+        </div>
+        <div>
+          <label for="numero">Número da ata</label>
+          <input id="numero" name="numero" value="{{ form.get('numero', '') }}" placeholder="012/2026">
+        </div>
+        <div>
+          <label for="data">Data</label>
+          <input id="data" name="data" value="{{ form.get('data', '') }}" placeholder="20/03/2026">
+        </div>
+      </div>
+      <label for="local">Local</label>
+      <input id="local" name="local" value="{{ form.get('local', '') }}" placeholder="Sala 12 — Bloco B">
+      <label for="anotacoes">Anotações brutas *</label>
+      <textarea id="anotacoes" name="anotacoes" required
+        placeholder="Cole aqui os tópicos, a transcrição ou as anotações da reunião...">{{ form.get('anotacoes', '') }}</textarea>
+      <label for="observacoes">Observações adicionais</label>
+      <input id="observacoes" name="observacoes" value="{{ form.get('observacoes', '') }}">
+      <button type="submit">Gerar ata</button>
+    </form>
+    <section class="card">
+      <h2 style="margin-top:0;font-size:16px;">Ata gerada</h2>
+      {% if erro %}<p class="erro">{{ erro }}</p>{% endif %}
+      {% if ata %}<pre id="ata">{{ ata }}</pre>
+      {% elif not erro %}<p class="vazio">Preencha o formulário e clique em “Gerar ata”.</p>{% endif %}
+    </section>
+  </main>
+</body>
+</html>

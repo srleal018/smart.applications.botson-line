@@ -3,3 +3,6 @@ node_modules/
 config.js
 logs/
 *.log
+.venv
+__pycache__/
+*.pyc
